@@ -102,20 +102,14 @@ func BenchmarkAce_Param(b *testing.B) {
 	r, _ := http.NewRequest("GET", "/user/gordon", nil)
 	benchRequest(b, router, r)
 }
+func BenchmarkBadger_Param(b *testing.B) {
+	router := loadBadgerSingle("GET", "/user/{name}", http.HandlerFunc(badgerHandle))
+
+	r, _ := http.NewRequest("GET", "/user/gordon", nil)
+	benchRequest(b, router, r)
+}
 func BenchmarkBear_Param(b *testing.B) {
 	router := loadBearSingle("GET", "/user/{name}", bearHandler)
-
-	r, _ := http.NewRequest("GET", "/user/gordon", nil)
-	benchRequest(b, router, r)
-}
-func BenchmarkBeego_Param(b *testing.B) {
-	router := loadBeegoSingle("GET", "/user/:name", beegoHandler)
-
-	r, _ := http.NewRequest("GET", "/user/gordon", nil)
-	benchRequest(b, router, r)
-}
-func BenchmarkBone_Param(b *testing.B) {
-	router := loadBoneSingle("GET", "/user/:name", http.HandlerFunc(httpHandlerFunc))
 
 	r, _ := http.NewRequest("GET", "/user/gordon", nil)
 	benchRequest(b, router, r)
@@ -138,32 +132,8 @@ func BenchmarkGin_Param(b *testing.B) {
 	r, _ := http.NewRequest("GET", "/user/gordon", nil)
 	benchRequest(b, router, r)
 }
-func BenchmarkGocraftWeb_Param(b *testing.B) {
-	router := loadGocraftWebSingle("GET", "/user/:name", gocraftWebHandler)
-
-	r, _ := http.NewRequest("GET", "/user/gordon", nil)
-	benchRequest(b, router, r)
-}
-func BenchmarkGoji_Param(b *testing.B) {
-	router := loadGojiSingle("GET", "/user/:name", httpHandlerFunc)
-
-	r, _ := http.NewRequest("GET", "/user/gordon", nil)
-	benchRequest(b, router, r)
-}
-func BenchmarkGojiv2_Param(b *testing.B) {
-	router := loadGojiv2Single("GET", "/user/:name", gojiv2Handler)
-
-	r, _ := http.NewRequest("GET", "/user/gordon", nil)
-	benchRequest(b, router, r)
-}
 func BenchmarkGoJsonRest_Param(b *testing.B) {
 	router := loadGoJsonRestSingle("GET", "/user/:name", goJsonRestHandler)
-
-	r, _ := http.NewRequest("GET", "/user/gordon", nil)
-	benchRequest(b, router, r)
-}
-func BenchmarkGoRestful_Param(b *testing.B) {
-	router := loadGoRestfulSingle("GET", "/user/{name}", goRestfulHandler)
 
 	r, _ := http.NewRequest("GET", "/user/gordon", nil)
 	benchRequest(b, router, r)
@@ -186,36 +156,14 @@ func BenchmarkHttpTreeMux_Param(b *testing.B) {
 	r, _ := http.NewRequest("GET", "/user/gordon", nil)
 	benchRequest(b, router, r)
 }
-func BenchmarkKocha_Param(b *testing.B) {
-	handler := new(kochaHandler)
-	router := loadKochaSingle(
-		"GET", "/user/:name",
-		handler, http.HandlerFunc(handler.Get),
-	)
-
-	r, _ := http.NewRequest("GET", "/user/gordon", nil)
-	benchRequest(b, router, r)
-}
 func BenchmarkLARS_Param(b *testing.B) {
 	router := loadLARSSingle("GET", "/user/:name", larsHandler)
 
 	r, _ := http.NewRequest("GET", "/user/gordon", nil)
 	benchRequest(b, router, r)
 }
-func BenchmarkMacaron_Param(b *testing.B) {
-	router := loadMacaronSingle("GET", "/user/:name", macaronHandler)
-
-	r, _ := http.NewRequest("GET", "/user/gordon", nil)
-	benchRequest(b, router, r)
-}
 func BenchmarkMartini_Param(b *testing.B) {
 	router := loadMartiniSingle("GET", "/user/:name", martiniHandler)
-
-	r, _ := http.NewRequest("GET", "/user/gordon", nil)
-	benchRequest(b, router, r)
-}
-func BenchmarkPat_Param(b *testing.B) {
-	router := loadPatSingle("GET", "/user/:name", http.HandlerFunc(httpHandlerFunc))
 
 	r, _ := http.NewRequest("GET", "/user/gordon", nil)
 	benchRequest(b, router, r)
@@ -234,32 +182,8 @@ func BenchmarkR2router_Param(b *testing.B) {
 	benchRequest(b, router, r)
 }
 
-func BenchmarkRevel_Param(b *testing.B) {
-	router := loadRevelSingle("GET", "/user/:name", "RevelController.Handle")
-
-	r, _ := http.NewRequest("GET", "/user/gordon", nil)
-	benchRequest(b, router, r)
-}
 func BenchmarkRivet_Param(b *testing.B) {
 	router := loadRivetSingle("GET", "/user/:name", rivetHandler)
-
-	r, _ := http.NewRequest("GET", "/user/gordon", nil)
-	benchRequest(b, router, r)
-}
-func BenchmarkTango_Param(b *testing.B) {
-	router := loadTangoSingle("GET", "/user/:name", tangoHandler)
-
-	r, _ := http.NewRequest("GET", "/user/gordon", nil)
-	benchRequest(b, router, r)
-}
-func BenchmarkTigerTonic_Param(b *testing.B) {
-	router := loadTigerTonicSingle("GET", "/user/{name}", httpHandlerFunc)
-
-	r, _ := http.NewRequest("GET", "/user/gordon", nil)
-	benchRequest(b, router, r)
-}
-func BenchmarkTraffic_Param(b *testing.B) {
-	router := loadTrafficSingle("GET", "/user/:name", trafficHandler)
 
 	r, _ := http.NewRequest("GET", "/user/gordon", nil)
 	benchRequest(b, router, r)
@@ -289,20 +213,14 @@ func BenchmarkAce_Param5(b *testing.B) {
 	r, _ := http.NewRequest("GET", fiveRoute, nil)
 	benchRequest(b, router, r)
 }
+func BenchmarkBadger_Param5(b *testing.B) {
+	router := loadBadgerSingle("GET", fiveBrace, http.HandlerFunc(badgerHandle))
+
+	r, _ := http.NewRequest("GET", fiveRoute, nil)
+	benchRequest(b, router, r)
+}
 func BenchmarkBear_Param5(b *testing.B) {
 	router := loadBearSingle("GET", fiveBrace, bearHandler)
-
-	r, _ := http.NewRequest("GET", fiveRoute, nil)
-	benchRequest(b, router, r)
-}
-func BenchmarkBeego_Param5(b *testing.B) {
-	router := loadBeegoSingle("GET", fiveColon, beegoHandler)
-
-	r, _ := http.NewRequest("GET", fiveRoute, nil)
-	benchRequest(b, router, r)
-}
-func BenchmarkBone_Param5(b *testing.B) {
-	router := loadBoneSingle("GET", fiveColon, http.HandlerFunc(httpHandlerFunc))
 
 	r, _ := http.NewRequest("GET", fiveRoute, nil)
 	benchRequest(b, router, r)
@@ -325,35 +243,11 @@ func BenchmarkGin_Param5(b *testing.B) {
 	r, _ := http.NewRequest("GET", fiveRoute, nil)
 	benchRequest(b, router, r)
 }
-func BenchmarkGocraftWeb_Param5(b *testing.B) {
-	router := loadGocraftWebSingle("GET", fiveColon, gocraftWebHandler)
-
-	r, _ := http.NewRequest("GET", fiveRoute, nil)
-	benchRequest(b, router, r)
-}
-func BenchmarkGoji_Param5(b *testing.B) {
-	router := loadGojiSingle("GET", fiveColon, httpHandlerFunc)
-
-	r, _ := http.NewRequest("GET", fiveRoute, nil)
-	benchRequest(b, router, r)
-}
-func BenchmarkGojiv2_Param5(b *testing.B) {
-	router := loadGojiv2Single("GET", fiveColon, gojiv2Handler)
-
-	r, _ := http.NewRequest("GET", fiveRoute, nil)
-	benchRequest(b, router, r)
-}
 func BenchmarkGoJsonRest_Param5(b *testing.B) {
 	handler := loadGoJsonRestSingle("GET", fiveColon, goJsonRestHandler)
 
 	r, _ := http.NewRequest("GET", fiveRoute, nil)
 	benchRequest(b, handler, r)
-}
-func BenchmarkGoRestful_Param5(b *testing.B) {
-	router := loadGoRestfulSingle("GET", fiveBrace, goRestfulHandler)
-
-	r, _ := http.NewRequest("GET", fiveRoute, nil)
-	benchRequest(b, router, r)
 }
 func BenchmarkGorillaMux_Param5(b *testing.B) {
 	router := loadGorillaMuxSingle("GET", fiveBrace, httpHandlerFunc)
@@ -373,36 +267,14 @@ func BenchmarkHttpTreeMux_Param5(b *testing.B) {
 	r, _ := http.NewRequest("GET", fiveRoute, nil)
 	benchRequest(b, router, r)
 }
-func BenchmarkKocha_Param5(b *testing.B) {
-	handler := new(kochaHandler)
-	router := loadKochaSingle(
-		"GET", fiveColon,
-		handler, http.HandlerFunc(handler.Get),
-	)
-
-	r, _ := http.NewRequest("GET", fiveRoute, nil)
-	benchRequest(b, router, r)
-}
 func BenchmarkLARS_Param5(b *testing.B) {
 	router := loadLARSSingle("GET", fiveColon, larsHandler)
 
 	r, _ := http.NewRequest("GET", fiveRoute, nil)
 	benchRequest(b, router, r)
 }
-func BenchmarkMacaron_Param5(b *testing.B) {
-	router := loadMacaronSingle("GET", fiveColon, macaronHandler)
-
-	r, _ := http.NewRequest("GET", fiveRoute, nil)
-	benchRequest(b, router, r)
-}
 func BenchmarkMartini_Param5(b *testing.B) {
 	router := loadMartiniSingle("GET", fiveColon, martiniHandler)
-
-	r, _ := http.NewRequest("GET", fiveRoute, nil)
-	benchRequest(b, router, r)
-}
-func BenchmarkPat_Param5(b *testing.B) {
-	router := loadPatSingle("GET", fiveColon, http.HandlerFunc(httpHandlerFunc))
 
 	r, _ := http.NewRequest("GET", fiveRoute, nil)
 	benchRequest(b, router, r)
@@ -420,32 +292,8 @@ func BenchmarkR2router_Param5(b *testing.B) {
 	benchRequest(b, router, r)
 }
 
-func BenchmarkRevel_Param5(b *testing.B) {
-	router := loadRevelSingle("GET", fiveColon, "RevelController.Handle")
-
-	r, _ := http.NewRequest("GET", fiveRoute, nil)
-	benchRequest(b, router, r)
-}
 func BenchmarkRivet_Param5(b *testing.B) {
 	router := loadRivetSingle("GET", fiveColon, rivetHandler)
-
-	r, _ := http.NewRequest("GET", fiveRoute, nil)
-	benchRequest(b, router, r)
-}
-func BenchmarkTango_Param5(b *testing.B) {
-	router := loadTangoSingle("GET", fiveColon, tangoHandler)
-
-	r, _ := http.NewRequest("GET", fiveRoute, nil)
-	benchRequest(b, router, r)
-}
-func BenchmarkTigerTonic_Param5(b *testing.B) {
-	router := loadTigerTonicSingle("GET", fiveBrace, httpHandlerFunc)
-
-	r, _ := http.NewRequest("GET", fiveRoute, nil)
-	benchRequest(b, router, r)
-}
-func BenchmarkTraffic_Param5(b *testing.B) {
-	router := loadTrafficSingle("GET", fiveColon, trafficHandler)
 
 	r, _ := http.NewRequest("GET", fiveRoute, nil)
 	benchRequest(b, router, r)
@@ -475,20 +323,14 @@ func BenchmarkAce_Param20(b *testing.B) {
 	r, _ := http.NewRequest("GET", twentyRoute, nil)
 	benchRequest(b, router, r)
 }
+func BenchmarkBadger_Param20(b *testing.B) {
+	router := loadBadgerSingle("GET", twentyBrace, http.HandlerFunc(badgerHandle))
+
+	r, _ := http.NewRequest("GET", twentyRoute, nil)
+	benchRequest(b, router, r)
+}
 func BenchmarkBear_Param20(b *testing.B) {
 	router := loadBearSingle("GET", twentyBrace, bearHandler)
-
-	r, _ := http.NewRequest("GET", twentyRoute, nil)
-	benchRequest(b, router, r)
-}
-func BenchmarkBeego_Param20(b *testing.B) {
-	router := loadBeegoSingle("GET", twentyColon, beegoHandler)
-
-	r, _ := http.NewRequest("GET", twentyRoute, nil)
-	benchRequest(b, router, r)
-}
-func BenchmarkBone_Param20(b *testing.B) {
-	router := loadBoneSingle("GET", twentyColon, http.HandlerFunc(httpHandlerFunc))
 
 	r, _ := http.NewRequest("GET", twentyRoute, nil)
 	benchRequest(b, router, r)
@@ -511,32 +353,8 @@ func BenchmarkGin_Param20(b *testing.B) {
 	r, _ := http.NewRequest("GET", twentyRoute, nil)
 	benchRequest(b, router, r)
 }
-func BenchmarkGocraftWeb_Param20(b *testing.B) {
-	router := loadGocraftWebSingle("GET", twentyColon, gocraftWebHandler)
-
-	r, _ := http.NewRequest("GET", twentyRoute, nil)
-	benchRequest(b, router, r)
-}
-func BenchmarkGoji_Param20(b *testing.B) {
-	router := loadGojiSingle("GET", twentyColon, httpHandlerFunc)
-
-	r, _ := http.NewRequest("GET", twentyRoute, nil)
-	benchRequest(b, router, r)
-}
-func BenchmarkGojiv2_Param20(b *testing.B) {
-	router := loadGojiv2Single("GET", twentyColon, gojiv2Handler)
-
-	r, _ := http.NewRequest("GET", twentyRoute, nil)
-	benchRequest(b, router, r)
-}
 func BenchmarkGoJsonRest_Param20(b *testing.B) {
 	handler := loadGoJsonRestSingle("GET", twentyColon, goJsonRestHandler)
-
-	r, _ := http.NewRequest("GET", twentyRoute, nil)
-	benchRequest(b, handler, r)
-}
-func BenchmarkGoRestful_Param20(b *testing.B) {
-	handler := loadGoRestfulSingle("GET", twentyBrace, goRestfulHandler)
 
 	r, _ := http.NewRequest("GET", twentyRoute, nil)
 	benchRequest(b, handler, r)
@@ -559,36 +377,14 @@ func BenchmarkHttpTreeMux_Param20(b *testing.B) {
 	r, _ := http.NewRequest("GET", twentyRoute, nil)
 	benchRequest(b, router, r)
 }
-func BenchmarkKocha_Param20(b *testing.B) {
-	handler := new(kochaHandler)
-	router := loadKochaSingle(
-		"GET", twentyColon,
-		handler, http.HandlerFunc(handler.Get),
-	)
-
-	r, _ := http.NewRequest("GET", twentyRoute, nil)
-	benchRequest(b, router, r)
-}
 func BenchmarkLARS_Param20(b *testing.B) {
 	router := loadLARSSingle("GET", twentyColon, larsHandler)
 
 	r, _ := http.NewRequest("GET", twentyRoute, nil)
 	benchRequest(b, router, r)
 }
-func BenchmarkMacaron_Param20(b *testing.B) {
-	router := loadMacaronSingle("GET", twentyColon, macaronHandler)
-
-	r, _ := http.NewRequest("GET", twentyRoute, nil)
-	benchRequest(b, router, r)
-}
 func BenchmarkMartini_Param20(b *testing.B) {
 	router := loadMartiniSingle("GET", twentyColon, martiniHandler)
-
-	r, _ := http.NewRequest("GET", twentyRoute, nil)
-	benchRequest(b, router, r)
-}
-func BenchmarkPat_Param20(b *testing.B) {
-	router := loadPatSingle("GET", twentyColon, http.HandlerFunc(httpHandlerFunc))
 
 	r, _ := http.NewRequest("GET", twentyRoute, nil)
 	benchRequest(b, router, r)
@@ -606,32 +402,8 @@ func BenchmarkR2router_Param20(b *testing.B) {
 	benchRequest(b, router, r)
 }
 
-func BenchmarkRevel_Param20(b *testing.B) {
-	router := loadRevelSingle("GET", twentyColon, "RevelController.Handle")
-
-	r, _ := http.NewRequest("GET", twentyRoute, nil)
-	benchRequest(b, router, r)
-}
 func BenchmarkRivet_Param20(b *testing.B) {
 	router := loadRivetSingle("GET", twentyColon, rivetHandler)
-
-	r, _ := http.NewRequest("GET", twentyRoute, nil)
-	benchRequest(b, router, r)
-}
-func BenchmarkTango_Param20(b *testing.B) {
-	router := loadTangoSingle("GET", twentyColon, tangoHandler)
-
-	r, _ := http.NewRequest("GET", twentyRoute, nil)
-	benchRequest(b, router, r)
-}
-func BenchmarkTigerTonic_Param20(b *testing.B) {
-	router := loadTigerTonicSingle("GET", twentyBrace, httpHandlerFunc)
-
-	r, _ := http.NewRequest("GET", twentyRoute, nil)
-	benchRequest(b, router, r)
-}
-func BenchmarkTraffic_Param20(b *testing.B) {
-	router := loadTrafficSingle("GET", twentyColon, trafficHandler)
 
 	r, _ := http.NewRequest("GET", twentyRoute, nil)
 	benchRequest(b, router, r)
@@ -657,20 +429,14 @@ func BenchmarkAce_ParamWrite(b *testing.B) {
 	r, _ := http.NewRequest("GET", "/user/gordon", nil)
 	benchRequest(b, router, r)
 }
+func BenchmarkBadger_ParamWrite(b *testing.B) {
+	router := loadBadgerSingle("GET", "/user/{name}", http.HandlerFunc(badgerHandleWrite))
+
+	r, _ := http.NewRequest("GET", "/user/gordon", nil)
+	benchRequest(b, router, r)
+}
 func BenchmarkBear_ParamWrite(b *testing.B) {
 	router := loadBearSingle("GET", "/user/{name}", bearHandlerWrite)
-
-	r, _ := http.NewRequest("GET", "/user/gordon", nil)
-	benchRequest(b, router, r)
-}
-func BenchmarkBeego_ParamWrite(b *testing.B) {
-	router := loadBeegoSingle("GET", "/user/:name", beegoHandlerWrite)
-
-	r, _ := http.NewRequest("GET", "/user/gordon", nil)
-	benchRequest(b, router, r)
-}
-func BenchmarkBone_ParamWrite(b *testing.B) {
-	router := loadBoneSingle("GET", "/user/:name", http.HandlerFunc(boneHandlerWrite))
 
 	r, _ := http.NewRequest("GET", "/user/gordon", nil)
 	benchRequest(b, router, r)
@@ -693,32 +459,8 @@ func BenchmarkGin_ParamWrite(b *testing.B) {
 	r, _ := http.NewRequest("GET", "/user/gordon", nil)
 	benchRequest(b, router, r)
 }
-func BenchmarkGocraftWeb_ParamWrite(b *testing.B) {
-	router := loadGocraftWebSingle("GET", "/user/:name", gocraftWebHandlerWrite)
-
-	r, _ := http.NewRequest("GET", "/user/gordon", nil)
-	benchRequest(b, router, r)
-}
-func BenchmarkGoji_ParamWrite(b *testing.B) {
-	router := loadGojiSingle("GET", "/user/:name", gojiFuncWrite)
-
-	r, _ := http.NewRequest("GET", "/user/gordon", nil)
-	benchRequest(b, router, r)
-}
-func BenchmarkGojiv2_ParamWrite(b *testing.B) {
-	router := loadGojiv2Single("GET", "/user/:name", gojiv2HandlerWrite)
-
-	r, _ := http.NewRequest("GET", "/user/gordon", nil)
-	benchRequest(b, router, r)
-}
 func BenchmarkGoJsonRest_ParamWrite(b *testing.B) {
 	handler := loadGoJsonRestSingle("GET", "/user/:name", goJsonRestHandlerWrite)
-
-	r, _ := http.NewRequest("GET", "/user/gordon", nil)
-	benchRequest(b, handler, r)
-}
-func BenchmarkGoRestful_ParamWrite(b *testing.B) {
-	handler := loadGoRestfulSingle("GET", "/user/{name}", goRestfulHandlerWrite)
 
 	r, _ := http.NewRequest("GET", "/user/gordon", nil)
 	benchRequest(b, handler, r)
@@ -741,36 +483,15 @@ func BenchmarkHttpTreeMux_ParamWrite(b *testing.B) {
 	r, _ := http.NewRequest("GET", "/user/gordon", nil)
 	benchRequest(b, router, r)
 }
-func BenchmarkKocha_ParamWrite(b *testing.B) {
-	handler := new(kochaHandler)
-	router := loadKochaSingle(
-		"GET", "/user/:name",
-		handler, http.HandlerFunc(handler.kochaHandlerWrite),
-	)
-
-	r, _ := http.NewRequest("GET", "/user/gordon", nil)
-	benchRequest(b, router, r)
-}
 func BenchmarkLARS_ParamWrite(b *testing.B) {
 	router := loadLARSSingle("GET", "/user/:name", larsHandlerWrite)
 
 	r, _ := http.NewRequest("GET", "/user/gordon", nil)
 	benchRequest(b, router, r)
 }
-func BenchmarkMacaron_ParamWrite(b *testing.B) {
-	router := loadMacaronSingle("GET", "/user/:name", macaronHandlerWrite)
 
-	r, _ := http.NewRequest("GET", "/user/gordon", nil)
-	benchRequest(b, router, r)
-}
 func BenchmarkMartini_ParamWrite(b *testing.B) {
 	router := loadMartiniSingle("GET", "/user/:name", martiniHandlerWrite)
-
-	r, _ := http.NewRequest("GET", "/user/gordon", nil)
-	benchRequest(b, router, r)
-}
-func BenchmarkPat_ParamWrite(b *testing.B) {
-	router := loadPatSingle("GET", "/user/:name", http.HandlerFunc(patHandlerWrite))
 
 	r, _ := http.NewRequest("GET", "/user/gordon", nil)
 	benchRequest(b, router, r)
@@ -788,35 +509,8 @@ func BenchmarkR2router_ParamWrite(b *testing.B) {
 	benchRequest(b, router, r)
 }
 
-func BenchmarkRevel_ParamWrite(b *testing.B) {
-	router := loadRevelSingle("GET", "/user/:name", "RevelController.HandleWrite")
-
-	r, _ := http.NewRequest("GET", "/user/gordon", nil)
-	benchRequest(b, router, r)
-}
 func BenchmarkRivet_ParamWrite(b *testing.B) {
 	router := loadRivetSingle("GET", "/user/:name", rivetHandlerWrite)
-
-	r, _ := http.NewRequest("GET", "/user/gordon", nil)
-	benchRequest(b, router, r)
-}
-func BenchmarkTango_ParamWrite(b *testing.B) {
-	router := loadTangoSingle("GET", "/user/:name", tangoHandlerWrite)
-
-	r, _ := http.NewRequest("GET", "/user/gordon", nil)
-	benchRequest(b, router, r)
-}
-func BenchmarkTigerTonic_ParamWrite(b *testing.B) {
-	router := loadTigerTonicSingle(
-		"GET", "/user/{name}",
-		http.HandlerFunc(tigerTonicHandlerWrite),
-	)
-
-	r, _ := http.NewRequest("GET", "/user/gordon", nil)
-	benchRequest(b, router, r)
-}
-func BenchmarkTraffic_ParamWrite(b *testing.B) {
-	router := loadTrafficSingle("GET", "/user/:name", trafficHandlerWrite)
 
 	r, _ := http.NewRequest("GET", "/user/gordon", nil)
 	benchRequest(b, router, r)

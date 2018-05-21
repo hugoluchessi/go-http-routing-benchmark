@@ -173,32 +173,20 @@ var (
 	staticHttpServeMux http.Handler
 
 	staticAce         http.Handler
+	staticBadger      http.Handler
 	staticBear        http.Handler
-	staticBeego       http.Handler
-	staticBone        http.Handler
 	staticDenco       http.Handler
 	staticEcho        http.Handler
 	staticGin         http.Handler
-	staticGocraftWeb  http.Handler
-	staticGoji        http.Handler
-	staticGojiv2      http.Handler
 	staticGoJsonRest  http.Handler
-	staticGoRestful   http.Handler
 	staticGorillaMux  http.Handler
 	staticHttpRouter  http.Handler
 	staticHttpTreeMux http.Handler
-	staticKocha       http.Handler
 	staticLARS        http.Handler
-	staticMacaron     http.Handler
 	staticMartini     http.Handler
-	staticPat         http.Handler
 	staticPossum      http.Handler
 	staticR2router    http.Handler
-	staticRevel       http.Handler
 	staticRivet       http.Handler
-	staticTango       http.Handler
-	staticTigerTonic  http.Handler
-	staticTraffic     http.Handler
 	staticVulcan      http.Handler
 	// staticZeus        http.Handler
 )
@@ -217,14 +205,11 @@ func init() {
 	calcMem("Ace", func() {
 		staticAce = loadAce(staticRoutes)
 	})
+	calcMem("Badger", func() {
+		staticBadger = loadBadger(staticRoutes)
+	})
 	calcMem("Bear", func() {
 		staticBear = loadBear(staticRoutes)
-	})
-	calcMem("Beego", func() {
-		staticBeego = loadBeego(staticRoutes)
-	})
-	calcMem("Bone", func() {
-		staticBone = loadBone(staticRoutes)
 	})
 	calcMem("Denco", func() {
 		staticDenco = loadDenco(staticRoutes)
@@ -235,20 +220,8 @@ func init() {
 	calcMem("Gin", func() {
 		staticGin = loadGin(staticRoutes)
 	})
-	calcMem("GocraftWeb", func() {
-		staticGocraftWeb = loadGocraftWeb(staticRoutes)
-	})
-	calcMem("Goji", func() {
-		staticGoji = loadGoji(staticRoutes)
-	})
-	calcMem("Gojiv2", func() {
-		staticGojiv2 = loadGojiv2(staticRoutes)
-	})
 	calcMem("GoJsonRest", func() {
 		staticGoJsonRest = loadGoJsonRest(staticRoutes)
-	})
-	calcMem("GoRestful", func() {
-		staticGoRestful = loadGoRestful(staticRoutes)
 	})
 	calcMem("GorillaMux", func() {
 		staticGorillaMux = loadGorillaMux(staticRoutes)
@@ -259,20 +232,11 @@ func init() {
 	calcMem("HttpTreeMux", func() {
 		staticHttpTreeMux = loadHttpTreeMux(staticRoutes)
 	})
-	calcMem("Kocha", func() {
-		staticKocha = loadKocha(staticRoutes)
-	})
 	calcMem("LARS", func() {
 		staticLARS = loadLARS(staticRoutes)
 	})
-	calcMem("Macaron", func() {
-		staticMacaron = loadMacaron(staticRoutes)
-	})
 	calcMem("Martini", func() {
 		staticMartini = loadMartini(staticRoutes)
-	})
-	calcMem("Pat", func() {
-		staticPat = loadPat(staticRoutes)
 	})
 	calcMem("Possum", func() {
 		staticPossum = loadPossum(staticRoutes)
@@ -280,20 +244,8 @@ func init() {
 	calcMem("R2router", func() {
 		staticR2router = loadR2router(staticRoutes)
 	})
-	calcMem("Revel", func() {
-		staticRevel = loadRevel(staticRoutes)
-	})
 	calcMem("Rivet", func() {
 		staticRivet = loadRivet(staticRoutes)
-	})
-	calcMem("Tango", func() {
-		staticTango = loadTango(staticRoutes)
-	})
-	calcMem("TigerTonic", func() {
-		staticTigerTonic = loadTigerTonic(staticRoutes)
-	})
-	calcMem("Traffic", func() {
-		staticTraffic = loadTraffic(staticRoutes)
 	})
 	calcMem("Vulcan", func() {
 		staticVulcan = loadVulcan(staticRoutes)
@@ -310,17 +262,14 @@ func init() {
 func BenchmarkAce_StaticAll(b *testing.B) {
 	benchRoutes(b, staticAce, staticRoutes)
 }
+func BenchmarkBadger_StaticAll(b *testing.B) {
+	benchRoutes(b, staticBadger, staticRoutes)
+}
 func BenchmarkHttpServeMux_StaticAll(b *testing.B) {
 	benchRoutes(b, staticHttpServeMux, staticRoutes)
 }
-func BenchmarkBeego_StaticAll(b *testing.B) {
-	benchRoutes(b, staticBeego, staticRoutes)
-}
 func BenchmarkBear_StaticAll(b *testing.B) {
 	benchRoutes(b, staticBear, staticRoutes)
-}
-func BenchmarkBone_StaticAll(b *testing.B) {
-	benchRoutes(b, staticBone, staticRoutes)
 }
 func BenchmarkDenco_StaticAll(b *testing.B) {
 	benchRoutes(b, staticDenco, staticRoutes)
@@ -331,20 +280,8 @@ func BenchmarkEcho_StaticAll(b *testing.B) {
 func BenchmarkGin_StaticAll(b *testing.B) {
 	benchRoutes(b, staticGin, staticRoutes)
 }
-func BenchmarkGocraftWeb_StaticAll(b *testing.B) {
-	benchRoutes(b, staticGocraftWeb, staticRoutes)
-}
-func BenchmarkGoji_StaticAll(b *testing.B) {
-	benchRoutes(b, staticGoji, staticRoutes)
-}
-func BenchmarkGojiv2_StaticAll(b *testing.B) {
-	benchRoutes(b, staticGojiv2, staticRoutes)
-}
 func BenchmarkGoJsonRest_StaticAll(b *testing.B) {
 	benchRoutes(b, staticGoJsonRest, staticRoutes)
-}
-func BenchmarkGoRestful_StaticAll(b *testing.B) {
-	benchRoutes(b, staticGoRestful, staticRoutes)
 }
 func BenchmarkGorillaMux_StaticAll(b *testing.B) {
 	benchRoutes(b, staticGorillaMux, staticRoutes)
@@ -355,20 +292,11 @@ func BenchmarkHttpRouter_StaticAll(b *testing.B) {
 func BenchmarkHttpTreeMux_StaticAll(b *testing.B) {
 	benchRoutes(b, staticHttpRouter, staticRoutes)
 }
-func BenchmarkKocha_StaticAll(b *testing.B) {
-	benchRoutes(b, staticKocha, staticRoutes)
-}
 func BenchmarkLARS_StaticAll(b *testing.B) {
 	benchRoutes(b, staticLARS, staticRoutes)
 }
-func BenchmarkMacaron_StaticAll(b *testing.B) {
-	benchRoutes(b, staticMacaron, staticRoutes)
-}
 func BenchmarkMartini_StaticAll(b *testing.B) {
 	benchRoutes(b, staticMartini, staticRoutes)
-}
-func BenchmarkPat_StaticAll(b *testing.B) {
-	benchRoutes(b, staticPat, staticRoutes)
 }
 func BenchmarkPossum_StaticAll(b *testing.B) {
 	benchRoutes(b, staticPossum, staticRoutes)
@@ -376,20 +304,8 @@ func BenchmarkPossum_StaticAll(b *testing.B) {
 func BenchmarkR2router_StaticAll(b *testing.B) {
 	benchRoutes(b, staticR2router, staticRoutes)
 }
-func BenchmarkRevel_StaticAll(b *testing.B) {
-	benchRoutes(b, staticRevel, staticRoutes)
-}
 func BenchmarkRivet_StaticAll(b *testing.B) {
 	benchRoutes(b, staticRivet, staticRoutes)
-}
-func BenchmarkTango_StaticAll(b *testing.B) {
-	benchRoutes(b, staticTango, staticRoutes)
-}
-func BenchmarkTigerTonic_StaticAll(b *testing.B) {
-	benchRoutes(b, staticTigerTonic, staticRoutes)
-}
-func BenchmarkTraffic_StaticAll(b *testing.B) {
-	benchRoutes(b, staticTraffic, staticRoutes)
 }
 func BenchmarkVulcan_StaticAll(b *testing.B) {
 	benchRoutes(b, staticVulcan, staticRoutes)

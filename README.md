@@ -9,23 +9,23 @@ Of course the tested routers can be used for any kind of HTTP request → handle
 
 #### Tested routers & frameworks:
 
- * [Beego](http://beego.me/)
- * [go-json-rest](https://github.com/ant0ine/go-json-rest)
- * [Denco](https://github.com/naoina/denco)
- * [Gocraft Web](https://github.com/gocraft/web)
- * [Goji](https://github.com/zenazn/goji/)
- * [Gorilla Mux](http://www.gorillatoolkit.org/pkg/mux)
- * [http.ServeMux](http://golang.org/pkg/net/http/#ServeMux)
- * [HttpRouter](https://github.com/julienschmidt/httprouter)
- * [HttpTreeMux](https://github.com/dimfeld/httptreemux)
- * [Kocha-urlrouter](https://github.com/naoina/kocha-urlrouter)
- * [Martini](https://github.com/go-martini/martini)
- * [Pat](https://github.com/bmizerany/pat)
- * [Possum](https://github.com/mikespook/possum)
- * [R2router](https://github.com/vanng822/r2router)
- * [TigerTonic](https://github.com/rcrowley/go-tigertonic)
- * [Traffic](https://github.com/pilu/traffic)
-
+* "github.com/ant0ine/go-json-rest/rest"
+* "github.com/go-playground/lars"
+* "github.com/dimfeld/httptreemux"
+* "github.com/gin-gonic/gin"
+* "github.com/go-martini/martini"
+* "github.com/gorilla/mux"
+* "github.com/hugoluchessi/badger"
+* "github.com/julienschmidt/httprouter"
+* "github.com/labstack/echo"
+* "github.com/mailgun/route"
+* "github.com/mikespook/possum"
+* "github.com/mikespook/possum/router"
+* "github.com/naoina/denco"
+* "github.com/plimble/ace"
+* "github.com/typepress/rivet"
+* "github.com/ursiform/bear"
+* "github.com/vanng822/r2router"
 
 ## Motivation
 
